@@ -1,3 +1,4 @@
+import "dotenv/config";
 import { basename } from "node:path"; // Verifies Node.js type definitions work
 
 import { measurements, schema } from "./constants.js";

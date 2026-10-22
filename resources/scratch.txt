@@ -1,0 +1,136 @@
+Error: connect ETIMEDOUT 192.168.88.1:8086\n    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1610:16)\n    at TCPConnectWrap.callbackTrampoline (node:internal/async_hooks:130:17) {errno: -4039, code: 'ETIMEDOUT', syscall: 'connect', address: '192.168.88.1', port: 8086, …}
+
+"Error: connect ETIMEDOUT 192.168.88.1:8086\n    
+at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1610:16)\n    
+at TCPConnectWrap.callbackTrampoline (node:internal/async_hooks:130:17)"
+
+
+
+
+
+
+
+
+
+
+        // // Create query client
+        // const queryApi = sourceClient.getQueryApi(process.env.SOURCE_ORG!)
+
+        // // Create write client
+        // const writeApi = targetClient.getWriteApi(
+        //     process.env.TARGET_ORG!,
+        //     process.env.TARGET_BUCKET!
+        // )
+
+        // Apply default tags to all points => we cover
+        // writeApi.useDefaultTags({ region: 'west' })
+
+        // Example query - modify according to your needs
+        // const query = `from(bucket: "${process.env.SOURCE_BUCKET}")
+        //     |> range(start: -1h)
+        //     |> filter(fn: (r) => r["_measurement"] == "your_measurement")`;
+
+        // const query = `from(bucket: "solar")
+        //     |> range(start: -30m, stop: -2x5m)
+        //     |> filter(fn: (r) => r["_measurement"] == "inverter")
+        //     |> filter(fn: (r) => r["_field"] == "Current.Battery" or r["_field"] == "Energy.Battery.Ah")
+        //     |> filter(fn: (r) => r["unit"] == "None")
+        //     |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)
+        //     |> yield(name: "mean")`;
+
+        // const query = `from(bucket: "solar")
+        // |> range(start: -30m, stop: -29m)
+        // |> filter(fn: (r) => r["_measurement"] == "inverter")
+        // |> filter(fn: (r) => r["_field"] == "Current.Battery" or r["_field"] == "Energy.Battery.Ah")
+        // |> filter(fn: (r) => r["unit"] == "None")`;
+
+        // const query =
+        //     'from(bucket: "solar") \n' +
+        //     '  |> range(start: -12h, stop: -11h) \n' +
+        //     '  |> filter(fn: (r) => r["_measurement"] == "battery" or r["_measurement"] == "inverter" or r["_measurement"] == "iot" or r["_measurement"] == "powerSensor" or r["_measurement"] == "system" or r["_measurement"] == "wallbox") '
+
+        // const query =
+        //     `from(bucket: "${process.env.SOURCE_BUCKET}")
+        //   |> range(start: -1h)
+        //   |> filter(fn: (r) => r._measurement == "temperature")`
+
+        // const query =
+        //     `from(bucket: "${process.env.SOURCE_BUCKET}")
+        //         |> range(start: -15m)
+        //         |> filter(fn: (r) => r["_measurement"] == "inverter")`
+
+
+
+
+
+    // Open datafile with _stop in append mode
+    // Open logfile in read and overwrite mode
+    // Read log and retrieve _stop
+
+    // for await (const { values, tableMeta } of queryApi.iterateRows(query)) {
+    //     // Example for a result
+    //     // {
+    //     //     "result": "_result",
+    //     //     "table": 0,
+    //     //     "_start": "1970-01-01T00:00:00Z",
+    //     //     "_stop": "2025-03-02T00:09:44.472288172Z",
+    //     //     "_time": "2025-02-25T20:37:57.980531Z",
+    //     //     "_value": 24,
+    //     //     "_field": "value",
+    //     //     "_measurement": "temperature",
+    //     //     "sensor_id": "TLM010"
+    //     // },
+
+    //     // Create result object
+    //     const oResult = tableMeta.toObject(values);
+
+    //     // Create point and fill it with result
+    //     const point = createPoint(oResult);
+
+    //     // Write point to target
+    //     writeApi.writePoint(point);
+
+    //     // // Append oResult to data file
+    //     // JSON.stringify(oResult);
+    //     console.log(`${oResult._time} ${oResult._measurement} in '${oResult.location}' (${oResult.sensor_id}): ${oResult._field}=${oResult._value}`);
+    // }
+
+    // for await (const {values, tableMeta} of queryApi.iterateRows(query)) {
+    //     const point = new Point(values[tableMeta.getColumnIndex('_measurement')])
+
+    //     // Add fields and tags from the query result
+    //     tableMeta.columns.forEach((column, i) => {
+    //         if (column.startsWith('_')) return // Skip internal fields
+
+    //         if (tableMeta.getColumnType(i) === 'string') {
+    //             point.tag(column, values[i])
+    //         } else {
+    //             point.floatField(column, values[i])
+    //         }
+    //     })
+
+    //     point.timestamp(values[tableMeta.getColumnIndex('_time')])
+    //     writeApi.writePoint(point)
+    // }
+
+    // const point = new Point('temperature')
+    //     .tag('sensor_id', 'TLM010')
+    //     .floatField('value', 24)
+
+    // console.log(` ${point}`)
+
+    // writeApi.writePoint(point)
+
+    /**
+     * Flush write buffer
+     * 
+     * Flush pending writes and close writeApi.
+     */
+
+    //     await writeApi.close()
+    //     console.log('Data transfer completed successfully')
+
+    // } catch (error) {
+    //     await writeApi.close()
+    //     console.error('Error during data transfer: \n', error)
+    // }
