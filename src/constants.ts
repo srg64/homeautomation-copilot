@@ -1,3 +1,27 @@
+/**
+ * List of all measurements that are used by the enpal influxdb
+ */
+export const measurements = [
+    "battery",
+    "inverter",
+    "iot",
+    "powerSensor",
+    "system",
+    "wallbox"
+] as const;
+
+/**
+ * Schema of all measurements that are used by the enpal influxdb.
+ * 
+ * Central information for the schema is the ISO date of the 
+ * commissioning of the PV system, which is used to determine 
+ * the start of the lifetime energy measurements:
+ * 
+ * Betriebserlaubnis PV Anlage:
+ * ISO Date:        2024-08-23T00:00:00
+ * Unix Timestamp:  1724364000
+ * JS Timestamp:    1724364000000
+ */
 export const schema = {
     battery: [
         "Battery.ChargeLevel.Max",
@@ -148,12 +172,3 @@ export const schema = {
         "Voltage.Wallbox.Connector.1.Phase.C"
     ]
 } as const;
-
-export const measurements = [
-    "battery",
-    "inverter",
-    "iot",
-    "powerSensor",
-    "system",
-    "wallbox"
-] as const;
