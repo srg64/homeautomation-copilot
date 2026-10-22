@@ -1,0 +1,20 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Start app.ts",
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/app.ts",
+            "runtimeArgs": [
+                "--import",
+                "tsx"
+            ],
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "skipFiles": [
+                "<node_internals>/**"
+            ]
+        }
+    ]
+}
