@@ -28,6 +28,7 @@
     "typescript": "^7.0.2"
   },
   "dependencies": {
+    "@influxdata/influxdb-client": "^1.35.0",
     "dotenv": "^18.0.8"
   }
 }

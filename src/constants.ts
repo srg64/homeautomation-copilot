@@ -10,6 +10,22 @@ export const measurements = [
     "wallbox"
 ] as const;
 
+export function isoDateToUnixSeconds(isoDate: string): number {
+    const timestamp = Date.parse(isoDate);
+    if (!Number.isFinite(timestamp)) {
+        throw new RangeError(`Invalid ISO date string: ${isoDate}`);
+    }
+    return Math.floor(timestamp / 1000);
+}
+
+export function unixSecondsToIsoDate(unixSeconds: number): string {
+    const timestamp = unixSeconds * 1000;
+    if (!Number.isFinite(timestamp)) {
+        throw new RangeError(`Invalid Unix timestamp: ${unixSeconds}`);
+    }
+    return new Date(timestamp).toISOString();
+}
+
 /**
  * Schema of all measurements that are used by the enpal influxdb.
  * 
