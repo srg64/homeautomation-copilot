@@ -2,12 +2,12 @@
   "name": "homeautomation-copilot",
   "version": "1.0.0",
   "description": "Reimplementation of homeautomation with github copilot",
-  "main": "app.js",
+  "main": "dist/transferFromEnpalToHomeautomation.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "tsx --watch src/app.ts",
+    "dev": "tsx --watch src/transferFromEnpalToHomeautomation.ts",
     "build": "tsc",
-    "start": "node dist/app.js"
+    "start": "node dist/transferFromEnpalToHomeautomation.js"
   },
   "repository": {
     "type": "git",

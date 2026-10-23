@@ -38,7 +38,7 @@ Empty hours do not produce a file. The function returns the number of records co
 After building, it can be called from another ESM script:
 
 ```js
-import { copyTodayHourlyData } from "./dist/app.js";
+import { copyTodayHourlyData } from "./dist/transferFromEnpalToHomeautomation.js";
 
 const copiedRecords = await copyTodayHourlyData();
 console.log(`Copied ${copiedRecords} records.`);

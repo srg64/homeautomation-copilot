@@ -2,10 +2,10 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Start app.ts",
+            "name": "Start transferFromEnpalToHomeautomation.ts",
             "type": "node",
             "request": "launch",
-            "program": "${workspaceFolder}/src/app.ts",
+            "program": "${workspaceFolder}/src/transferFromEnpalToHomeautomation.ts",
             "runtimeArgs": [
                 "--import",
                 "tsx"
