@@ -43,3 +43,20 @@ import { copyTodayHourlyData } from "./dist/transferFromEnpalToHomeautomation.js
 const copiedRecords = await copyTodayHourlyData();
 console.log(`Copied ${copiedRecords} records.`);
 ```
+
+## Convert old InfluxDB input files
+
+The converter reads `influx.data.*` and `queryResult.json` files from `data` and writes
+each record as one JSON line to a file with the same name in `data/work`.
+
+```sh
+npm run convert:dev
+npm run build
+npm run convert
+```
+
+Optional source and destination directories can be passed to the development command:
+
+```sh
+npm run convert:dev -- <source-directory> <destination-directory>
+```

@@ -15,6 +15,21 @@
             "skipFiles": [
                 "<node_internals>/**"
             ]
+        },
+        {
+            "name": "Start convertOldInputFormatToNewInputFormat.ts",
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/convertOldInputFormatToNewInputFormat.ts",
+            "runtimeArgs": [
+                "--import",
+                "tsx"
+            ],
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "skipFiles": [
+                "<node_internals>/**"
+            ]
         }
     ]
 }
